@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-ink font-sans text-slate-200 antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+      radial-gradient(800px 500px at 95% 0%, rgba(56, 189, 248, 0.08), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-violet-500/40 text-white;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2b3a56 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-line;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-white/[0.06] bg-panel/80 p-5 shadow-xl shadow-black/20 backdrop-blur;
+  }
+
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-violet-500/30 hover:shadow-violet-950/20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/60 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-violet-600 text-white shadow-lg shadow-violet-950/50 hover:bg-violet-500;
+  }
+
+  .btn-ghost {
+    @apply border border-white/10 bg-white/[0.04] text-slate-200 hover:border-violet-400/40 hover:bg-white/[0.08] hover:text-white;
+  }
+
+  .btn-danger {
+    @apply border border-rose-500/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500/20;
+  }
+
+  .btn-sm {
+    @apply rounded-lg px-2.5 py-1.5 text-xs;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-ink/60 px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-slate-400;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold;
+  }
+
+  .th {
+    @apply px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-400;
+  }
+
+  .td {
+    @apply px-4 py-3.5 text-sm text-slate-300;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-400 transition hover:bg-white/[0.05] hover:text-slate-100;
+  }
+
+  .nav-link-active {
+    @apply bg-violet-500/15 text-violet-200 shadow-inner shadow-violet-500/10 ring-1 ring-inset ring-violet-500/20;
+  }
+
+  .link {
+    @apply font-semibold text-violet-300 underline-offset-4 transition hover:text-violet-200 hover:underline;
+  }
+}
